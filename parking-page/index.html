@@ -4,39 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brandon Gutierrez's Website</title>
-</head>
 
-<body>
-  <h1>This is my website.</h1>
+  <!-- SEO -->
+  <title>Brandon Gutierrez</title>
+  <meta name="description" content="Brandon Gutierrez's personal website. Company in the making.">
 
-  <img src="./me.jpg" alt="brandon-gutierrez">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Brandon Gutierrez">
+  <meta property="og:description" content="This is my website. Company in the making as we speak!">
+  <meta property="og:image" content="https://brandongutierrez.com/me.jpg">
+  <meta property="og:url" content="https://brandongutierrez.com">
+  <meta property="og:type" content="website">
 
-  <audio id="myAudio" controls autoplay loop>
-    <source src="all-day.webm" type="audio/webm">
-  </audio>
-
-  <ul>
-    <li>
-      <a href="https://linkedin.com/in/bagutierrez-" target="_blank">linkedin</a>
-    </li>
-    <li>
-      <a href="https://github.com/bagutierrez0" target="_blank">github</a>
-    </li>
-  </ul>
-
-  <p>ee</p>
-
-  <marquee behavior="scroll" direction="right"><img src="ctc.png" alt=""></marquee>
+  <!-- Mobile theme color -->
+  <meta name="theme-color" content="#000000">
 
   <style>
     html {
-      background: url("background.jpg");
-      background-size: cover;
-      /* makes it fill the screen */
-      background-repeat: repeat;
-      background-position: center;
-
+      background: url("background.jpg") center / cover repeat;
       color: white;
       font-family: monospace;
       text-shadow:
@@ -44,7 +29,11 @@
         1px -1px 0 black,
         -1px 1px 0 black,
         1px 1px 0 black;
+    }
 
+    body {
+      color: yellow;
+      margin: 20px;
     }
 
     a {
@@ -53,25 +42,77 @@
 
     img {
       max-width: 300px;
+      height: auto;
     }
 
-    body {
-      color: yellow;
-    }
-
-    marquee > img {
+    marquee img {
       height: 69px;
     }
+
+    button {
+      font-family: monospace;
+      font-size: 16px;
+      padding: 8px 12px;
+      margin: 10px 0;
+      cursor: pointer;
+      border: 1px solid white;
+      background: black;
+      color: white;
+    }
   </style>
+</head>
+
+<body>
+  <h1>This is my website.</h1>
+
+  <img src="./me.jpg" alt="Brandon Gutierrez">
+
+  <!-- iOS-friendly audio -->
+  <button id="playBtn">▶ Play Music</button>
+
+  <audio id="myAudio" controls loop preload="metadata">
+    <source src="all-day.mp3" type="audio/mpeg">
+  </audio>
+
+  <ul>
+    <li>
+      <a href="https://linkedin.com/in/bagutierrez-" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </li>
+    <li>
+      <a href="https://github.com/bagutierrez0" target="_blank" rel="noopener noreferrer">github</a>
+    </li>
+  </ul>
+
+  <marquee behavior="scroll" direction="right">
+    <img src="ctc.png" alt="">
+  </marquee>
 
   <script>
     const audio = document.getElementById("myAudio");
+    const playBtn = document.getElementById("playBtn");
 
-    audio.addEventListener("loadedmetadata", () => {
-      audio.currentTime = 46; // start at 30 seconds
+    let hasStarted = false;
+
+    function startAudio() {
+      if (!hasStarted) {
+        audio.currentTime = 46;
+        hasStarted = true;
+      }
+      audio.muted = false;
+      audio.play().catch(() => {});
+    }
+
+    // Button click (main trigger)
+    playBtn.addEventListener("click", startAudio);
+
+    // If user presses native controls instead
+    audio.addEventListener("play", () => {
+      if (!hasStarted) {
+        audio.currentTime = 46;
+        hasStarted = true;
+      }
     });
   </script>
-  <p></p>
 </body>
 
 </html>
