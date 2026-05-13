@@ -15,6 +15,10 @@
   <meta property="og:image" content="https://brandongutierrez.com/me.jpg">
   <meta property="og:url" content="https://brandongutierrez.com">
   <meta property="og:type" content="website">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 
   <!-- Mobile theme color -->
   <meta name="theme-color" content="#000000">
@@ -71,7 +75,7 @@
   <button id="playBtn">▶ Play Music</button>
 
   <audio id="myAudio" controls loop preload="metadata">
-    <source src="all-day.mp3" type="audio/mpeg">
+    <source src="dreamscape.mp3" type="audio/mpeg">
   </audio>
 
   <ul>
@@ -95,7 +99,7 @@
 
     function startAudio() {
       if (!hasStarted) {
-        audio.currentTime = 46;
+        audio.currentTime = 3.3;
         hasStarted = true;
       }
       audio.muted = false;
@@ -108,7 +112,7 @@
     // If user presses native controls instead
     audio.addEventListener("play", () => {
       if (!hasStarted) {
-        audio.currentTime = 46;
+        audio.currentTime = 3.3;
         hasStarted = true;
       }
     });
