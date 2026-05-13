@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandon Gutierrez's Website</title>
+</head>
+
+<body>
+  <h1>This is my website.</h1>
+
+  <img src="./me.jpg" alt="brandon-gutierrez">
+
+  <audio id="myAudio" controls autoplay loop>
+    <source src="all-day.webm" type="audio/webm">
+  </audio>
+
+  <ul>
+    <li>
+      <a href="https://linkedin.com/in/bagutierrez-" target="_blank">linkedin</a>
+    </li>
+    <li>
+      <a href="https://github.com/bagutierrez0" target="_blank">github</a>
+    </li>
+  </ul>
+
+  <p>ee</p>
+
+  <marquee behavior="scroll" direction="right"><img src="ctc.png" alt=""></marquee>
+
+  <style>
+    html {
+      background: url("background.jpg");
+      background-size: cover;
+      /* makes it fill the screen */
+      background-repeat: repeat;
+      background-position: center;
+
+      color: white;
+      font-family: monospace;
+      text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+
+    }
+
+    a {
+      color: orange;
+    }
+
+    img {
+      max-width: 300px;
+    }
+
+    body {
+      color: yellow;
+    }
+
+    marquee > img {
+      height: 69px;
+    }
+  </style>
+
+  <script>
+    const audio = document.getElementById("myAudio");
+
+    audio.addEventListener("loadedmetadata", () => {
+      audio.currentTime = 46; // start at 30 seconds
+    });
+  </script>
+  <p></p>
+</body>
+
+</html>
